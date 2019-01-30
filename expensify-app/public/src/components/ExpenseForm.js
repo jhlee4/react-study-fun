@@ -1,8 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import { SingleDatePicker } from 'react-dates';
 
 const now = moment();
 console.log(now.format('MMM Do, YYYY'));
@@ -41,9 +41,9 @@ export default class ExpenseForm extends React.Component{
     }
 
     onFocusChange = ({ focused }) => {
-        this.setState(() => ({ calenderFocused: focused }))
+        this.setState(() => ({ calendarFocused: focused }))
       }
-      
+
     render(){
         return (
             <div>
@@ -67,6 +67,8 @@ export default class ExpenseForm extends React.Component{
                     onDateChange = {this.onDateChange}
                     focused = {this.state.calendarFocused}
                     onFocusChange = {this.onFocusChange}
+                    numberOfMonths={1}
+                    isOutsideRange = {()=>false}
                     id ="date_picker"
                 />
 
